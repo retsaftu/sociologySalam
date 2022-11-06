@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html>
+  <!--Начало первого блока объяснения кода-->
+  <head>
+    <meta charset="utf-8" />
+    <title>Запускатор Tproger</title>
+    <!--ссылаемся на шрифты, используемые в документе-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--здесь мы ссылаемся на стили, которые будем использовать в документе, а именно стиль иконок-->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <!--начало блока со стилями для страницы-->
+    <style>
+      /* Модальная структура документа */
+      /*общие настройки для всего документа*/
+      html,
+      body {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        margin: 0;
+        min-height: 180px;
+        padding: 0;
+        width: 380px;
+      }
+      /*задаём настройки для заголовков первого уровня*/
+      h1 {
+        font-family: "Menlo", monospace;
+        font-size: 22px;
+        font-weight: 400;
+        margin: 0;
+        color: #2f5876;
+      }
+      a:link,
+      a:visited {
+        color: #000000;
+        outline: 0;
+        text-decoration: none;
+      }
+      /*задаём ширину картинки*/
+      img {
+        width: 30px; /*ширина изображений*/
+      }
+      .modal-header {
+        align-items: center; /*выравнивание элементов по центру*/
+        border-bottom: 0.5px solid #dadada; /*свойства нижней разделительной линии*/
+        height: 50px;
+      }
+      .modal-content {
+        padding: 0 22px; /*отступы сверху и снизу, сверху и слева*/
+      }
+      .modal-icons {
+        border-top: 0.5px solid #dadada; /*свойства верхней разделительной линии*/
+        height: 50px;
+        width: 100%;
+      }
+      .logo {
+        padding: 16px; /*отступы со всех сторон*/
+      }
+      .logo-icon {
+        vertical-align: text-bottom; /*выравнивание по нижней части текста*/
+        margin-right: 12px; /*задётся отступ элементов от изображения*/
+      }
+      .version {
+        color: #444;
+        font-size: 18px;
+      }
+      .flex-container {
+        display: flex; /*отображает контейнер в виде блочного элемента*/
+        justify-content: space-between; /*равномерное выравнивание элементов*/
+        padding: 10px 22px;
+      }
+      /*задаём настройки для контейнеров с иконками*/
+      .flex {
+        opacity: 1; /*параметр непрозрачности иконок*/
+        width: 120px;
+      }
+      .flex:hover {
+        opacity: 0.4; /*уровень непрозрачности при наведении курсора на элемент*/
+      }
+      .flex .fa {
+        font-size: 40px;
+        color: #2f5876;
+      }
+      #myInput {
+        background-image: url("/css/searchicon.png"); /* Add a search icon to input */
+        background-position: 10px 12px; /* Position the search icon */
+        background-repeat: no-repeat; /* Do not repeat the icon image */
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 12px 20px 12px 40px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+      }
+
+      #myUL {
+        /* Remove default list styling */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #myUL li a {
+        border: 1px solid #ddd; /* Add a border to all links */
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6; /* Grey background color */
+        padding: 12px; /* Add some padding */
+        text-decoration: none; /* Remove default text underline */
+        font-size: 18px; /* Increase the font-size */
+        color: black; /* Add a black text color */
+        display: block; /* Make it into a block element to fill the whole list */
+      }
+
+      #myUL li a:hover:not(.header) {
+        background-color: #eee; /* Add a hover effect to all links, except for headers */
+      }
+      .bigInput {
+        width: 100%;
+        height: 50px;
+      }
+    </style>
+    <!--конец объяснения блока со стилями-->
+    <script src="popup.js"></script>
+    <!-- <script>
+      function doSomething() {
+        alert("Hello World!");
+      }
+    </script> -->
+  </head>
+  <!--объяснение тега <body>-->
+  <body>
+    <input class="bigInput" list="dish" placeholder="Название блюда" />
+    <datalist id="dish">
+      <option
+        value='1. Who is the author of the concept of the human mind being an
+aggregation of three interconnected components: "Id", "Ego",
+and "Superego".
+Freud
+'
+      ></option>
+      <option
+        value=". A document containing a theoretical substantiation of
+methodological approaches and methodological techniques for
+studying a certain phenomenon or process is called:
+the program of sociological research
+"
+      ></option>
+      <option
+        value=". Which of the following social institutions is the fundamental
+The family institution
+"
+      ></option>
+      <option
+        value=". The main purpose of all social institutions is …
+help individuals live their best lives in society.
+"
+      ></option>
+      <option
+        value=". What social institution corresponds to the need to ensure the
+reproduction and development of society through the organized
+transfer of social experience in the form of knowledge, skills
+and abilities
+Education
+"
+      ></option>
+      <option
+        value=". The dysfunction of a social institution is manifested in the
+following
+the institute is ineffective, its prestige in society is falling
+"
+      ></option>
+      <option
+        value=". Which of the following scientists developed the theory of the
+evolutionary development of society?
+Charles Darwin
+"
+      ></option>
+      <option
+        value='. "Closed" refers to such questions of a sociological
+questionnaire, where ..
+provides respondents with a fixed number of responses from
+which to choose an answer.
+'
+      ></option>
+      <option
+        value=". The method of collecting sociological data, in which text
+messages are the sources of information, is called:
+analysis of documents.
+"
+      ></option>
+      <option
+        value="0. Decline in the birth rate, child homelessness, juvenile
+delinquency are manifestations of the dysfunction of the
+institution..
+family institute
+"
+      ></option>
+      <option
+        value="1. In a pre-industrial society, most of the emerging social needs
+are satisfied by the institution…
+family institute
+"
+      ></option>
+      <option
+        value='2. The concept of "anomie" was introduced into science by…
+Émile Durkheim
+'
+      ></option>
+      <option
+        value="3. Repeated research in order to study the changes occurring in
+any group of people over a certain period of time is called:
+longitudinal study
+"
+      ></option>
+      <option
+        value='4. According to Durkheim, the concept of "anomie" means
+Normlessness
+'
+      ></option>
+      <option
+        value='5. What is the social sanction?
+a social reaction of approval or disapproval in response to
+someone"
+s actions
+'
+      ></option>
+      <option
+        value='6. What is the "
+"
+social norm"?
+generally recognized rules, patterns of behavior, standards
+of activity designed to ensure the orderliness, stability and
+stability of social interaction of individuals and social
+groups.
+'
+      ></option>
+      <option
+        value="7. Representative of the biological approach to the explanation
+of deviance
+Biological view of deviance
+"
+      ></option>
+      <option
+        value="8. Deviant acts punishable by law are defined by the term
+Crime
+"
+      ></option>
+      <option
+        value='9. Author of the sociological work "The Protestant Ethic and
+the Spirit of Capitalism"
+Max Weber
+'
+      ></option>
+      <option
+        value='0. Author of the sociological work "Economic ethics of world
+religions"
+Max Weber
+'
+      ></option>
+      <option
+        value="1. Stigmatization theory explains deviant behavior as
+a result of the negative label.
+the disapproval of a person because they do not fit the
+require social norms that are given in society.
+"
+      ></option>
+      <option
+        value='2. Author of "Suicide. Sociological study»
+Émile Durkheim
+'
+      ></option>
+      <option
+        value="3. Stance of the society when there are no generally accepted
+behavior standards, and the system of value and norms is
+destroyed
+anomie
+"
+      ></option>
+      <option
+        value='4. Author of the work "Course of Positive Philosophy"
+Auguste Comte
+'
+      ></option>
+      <option
+        value="5. Representatives of the psychological theory of deviance are
+T. Mohr, R. A. Saint-Simon, R. Owen, S. Fourier, F. Engels,
+G. Marcuse, R. Mills, R. Quinney, L. Kozer.
+Robert K. Merton. ( вот это скорее всего)
+"
+      ></option>
+      <option
+        value="6. Deviant behavior is
+behavior that violate social rules and norms.
+"
+      ></option>
+      <option
+        value="7. What is the object of the sociology?
+To introduce students to the basic social processes of society,
+social institutions and patterns of social behavior.
+"
+      ></option>
+      <option
+        value="8. Who implemented term sociology into the scientific
+circulation?
+Auguste Comte
+"
+      ></option>
+      <option
+        value="9. What is the social structure?
+social structure, in sociology, the distinctive, stable
+arrangement of institutions whereby human beings in a
+society interact and live together.
+"
+      ></option>
+      <option
+        value="0. Which of the following stratification systems is open?
+Class systems
+"
+      ></option>
+      <option
+        value="1. Socialization is
+the process of internalizing the norms and ideologies of
+society.
+"
+      ></option>
+      <option
+        value="2. Any set of people selected according to socially significant
+criteria
+social groups
+"
+      ></option>
+      <option
+        value="3. If a sociologist joined a careful meeting to conduct a study,
+he followed:
+included observation
+"
+      ></option>
+      <option
+        value="4. The social group is
+two or more people who interact with one another, share
+similar characteristics, and collectively have a sense of unity.
+"
+      ></option>
+      <option
+        value="5. A structureless, unorganized collection of people, which,
+under certain conditions, can turn into a group.
+Quasigroup
+(maybe) collective behaviour
+"
+      ></option>
+      <option
+        value="6. A social community of people united by interaction with a
+communicator who owns information and brings it to this
+community
+social media or audience
+"
+      ></option>
+      <option
+        value="7. The characteristics of a social group are
+(1) common destiny (2) mutual benefit (3) social structure
+(4) interaction and communication between members (5)
+self-categorisation
+"
+      ></option>
+      <option
+        value="8. Family can be attributed to
+a group of persons united by the ties of marriage, blood, or
+adoption, constituting a single household and interacting
+with each other in their respective social positions, usually
+those of spouses, parents, children, and siblings
+"
+      ></option>
+      <option
+        value="9. The consent of the individual with the prevailing opinions
+and views, following group norms
+socialization
+"
+      ></option>
+      <option
+        value="0. Individual defiance of group pressure
+social nonconformity
+"
+      ></option>
+      <option
+        value="1. Groups in which all their members know each other and in
+which interaction between them is possible
+small social groups
+"
+      ></option>
+      <option
+        value="2. A person who is interviewed in a sociological study is
+called:
+respondent
+"
+      ></option>
+      <option
+        value="3. Promotion is an example of
+vertical social mobility
+"
+      ></option>
+      <option
+        value="4. Method of studying relationships in small groups
+Sociometry
+"
+      ></option>
+      <option
+        value="5. Small social group connected by kinship and marriage
+Family
+"
+      ></option>
+      <option
+        value="6. The functions of the family do not include
+Ideological
+"
+      ></option>
+      <option
+        value="7. The transfer of social experience from parents to children is
+performed by such a function of the family as
+educational
+"
+      ></option>
+      <option
+        value='8. Keyword in determining: "...... - is the process of
+assimilation by individuals of samples of behavior, social norms
+and values, non-accredited for successful functioning in
+society":
+socialization
+'
+      ></option>
+      <option
+        value="9. The central concept of sociology K. Marx is:
+socio-economic formation
+"
+      ></option>
+      <option
+        value="0. Recognition oneself, relating oneself to another subject,
+group, social image in the process of socialisation is called…
+identification
+"
+      ></option>
+      <option
+        value='1. Which of the listed statuses and personal roles can not be
+called prescribed?
+"husband" or "wife", education
+'
+      ></option>
+      <option
+        value="2. Which of the listed concepts does not have a direct relation
+to the social structure of society
+socialization
+"
+      ></option>
+      <option
+        value="3. The referencial group is a group, ...
+this is a group that acts as a standard for an individual, a
+role model, a source of formation of social norms and value
+orientations
+"
+      ></option>
+      <option
+        value="4. The prescribed social status is the status, ...
+this is a status that a person acquires regardless of his desire
+"
+      ></option>
+      <option
+        value="5. Social personality status, which is fixed through the
+individual choice of personality, its own efforts, it is:
+achieved social status
+"
+      ></option>
+      <option
+        value='6. Expressive wills of large social groups and major carriers of
+social interests are …
+"influence groups"
+'
+      ></option>
+      <option
+        value='7. "Social physics" called sociology
+Auguste Comte
+'
+      ></option>
+      <option
+        value='8. The concept of "traditional type of action" introduced into
+sociology ...
+Max Weber
+'
+      ></option>
+      <option
+        value="9. The process of determining and consolidating social norms,
+rules, statuses and roles, bringing them into a system that is able
+to act in the direction of satisfaction of some public need, this is:
+institutionalization
+"
+      ></option>
+      <option
+        value="0. Family feature that is responsible for the birth of children
+reproductive
+"
+      ></option>
+      <option
+        value="1. The clash of role requirements for a person, caused by the
+multiplicity of roles simultaneously performed by him:
+Role Conflict
+"
+      ></option>
+      <option
+        value="2. Type of family according to the criterion of leadership, in
+which a woman dominates
+Matriarchy
+"
+      ></option>
+      <option
+        value="3. The family can contribute to a change in the social status of
+the individual, thus performing the function
+social mobility
+"
+      ></option>
+      <option
+        value="4. P.A. Sorokin was the author of the concept
+social stratification and mobility.
+"
+      ></option>
+      <option
+        value="5. Social institutions contributing to the movement of
+individuals from one social layer to another
+social mobility
+"
+      ></option>
+      <option
+        value="6. Social mobility is defined as
+any transition of an individual or a social group from one
+social position to another
+"
+      ></option>
+      <option
+        value="7. E.Durkheim Social Progress related to development
+conflicts of division of labor contradictions of exploitation
+"
+      ></option>
+      <option
+        value="8. Type of stratification system based on the difference in
+position in the power-state hierarchies
+A kind of stratification system
+Sort of
+"
+      ></option>
+      <option
+        value="9. Type of stratification system based on the difference in
+access to socially significant information
+Cultural and symbolic stratification
+"
+      ></option>
+      <option
+        value="0. Type of stratification system based on the differentiation of
+social groups according to socio-demographic, anthropophysical
+characteristics
+Physico-genetic
+"
+      ></option>
+      <option
+        value="1. Type of stratification system based on differences in content
+and working conditions
+Socio-professional
+"
+      ></option>
+      <option
+        value='2. The author of the concept of "social mobility"
+P. Sorokin
+'
+      ></option>
+      <option
+        value="3. Movements of individuals in the system of social hierarchy,
+accompanied by an increase or decrease in social status
+vertical mobility
+"
+      ></option>
+      <option
+        value="4. Displacement of individuals in the social hierarchy system,
+accompanied by an increase in social status
+upward mobility
+"
+      ></option>
+      <option
+        value="5. A type of social mobility in which there is no increase or
+decrease in the social status of an individual
+Horizontal mobility
+"
+      ></option>
+      <option
+        value="6. Bankruptcy is an example
+Insolvency
+"
+      ></option>
+      <option
+        value="7. Promotion is an example
+horizontal social mobility
+"
+      ></option>
+      <option
+        value="8. Army, family, professional organizations, parties are
+examples
+social mobility channels
+"
+      ></option>
+      <option
+        value="9. The main criteria for social stratification does not apply
+"
+      ></option>
+      <option
+        value=") prestige. 2) the level of education. 3) the degree of
+proximity to power. 4) place of residence.
+"
+      ></option>
+      <option
+        value='0. Who introduced the concept of "ideal type" into sociology?
+M.Weber
+'
+      ></option>
+      <option
+        value="1. Sample subcollection or sample – is
+this is a part of the general set of elements that is covered by
+the experiment (observation, survey)
+"
+      ></option>
+      <option
+        value="2. Refined, sophisticated and high-quality consumer-oriented
+culture
+Elite culture
+"
+      ></option>
+      <option
+        value="3. A sociological concept that takes the interaction of people
+between individuals or groups as a basis and the essence of
+social reality is called ...
+Interactionism
+"
+      ></option>
+      <option
+        value="4. Installations, values and moods, directly opposing
+themselves dominant culture
+counterculture
+"
+      ></option>
+      <option
+        value="5. The established stable order of people in behavior and in
+everyday life, what has passed from one generation to another
+custom
+"
+      ></option>
+      <option
+        value="6. Norms, values and rules, traditions and properties that are
+inherent in all cultures regardless of geographical location,
+historical time and social system of society
+Cultural universals
+"
+      ></option>
+      <option
+        value="7. The type of culture denoting everything that relates to the
+relationship between a person with its habitat, the technological
+side of life
+Counterculture
+"
+      ></option>
+      <option
+        value="8. The type of culture that includes subjective aspects of life,
+ideas, installations, values
+Subculture
+"
+      ></option>
+      <option
+        value="9. In the work of E. Durkheim focuses on problems …
+suicide
+"
+      ></option>
+      <option
+        value="0. Type of culture, a set of works of folk creativity (folklore),
+which are created by anonymous authors who do not have
+training
+Spiritual culture
+"
+      ></option>
+      <option
+        value="1. The type of culture representing a generally recognized set
+of cultural samples and representations supported by the media
+Elite culture
+"
+      ></option>
+      <option
+        value='2. T. Parsons"
+ sociology focuses on ...
+modern industrial systems
+'
+      ></option>
+      <option
+        value="3. Part of the total culture that is formed by a particular social
+group and differs from the dominant culture with the language,
+behavior, hairstyle, clothing, customs
+Subculture
+"
+      ></option>
+      <option
+        value="4. The social group with which the individual relates himself as
+a standard and to norms, opinions, the values of which he is
+guided in his behavior:
+Reference group
+"
+      ></option>
+      <option
+        value="5. Social community of people united by interaction with a
+communicator
+auditorium
+"
+      ></option>
+      <option
+        value="6. Suicides committed in the name of duty, E. Durkheim calls
+altruistic
+"
+      ></option>
+      <option
+        value="7. E. Durkheim considered the main indicator of progress
+Transition from mechanical solidarity to organic solidarity
+"
+      ></option>
+      <option
+        value="8. The founder of positivism in sociology is
+Auguste Comte
+"
+      ></option>
+      <option
+        value="9. Group of two people
+dyad
+"
+      ></option>
+      <option
+        value="00. Type of stratification system in which gender, age and
+physical data form the basis of differentiation
+physico-genetic
+"
+      ></option>
+      <option
+        value="01. A type of stratification system based on direct violence and
+coercion. Social groups differ in the presence or absence of civil
+rights and property rights
+Slaveholding stratification
+"
+      ></option>
+      <option
+        value="02. Type of stratification system in which the basis of
+differentiation is the religious and ethnic division of labor
+caste
+"
+      ></option>
+      <option
+        value="03. The characteristic features of an industrial society do NOT
+include …
+syncretism
+"
+      ></option>
+      <option
+        value="04. Type of stratification system in which the basis of
+differentiation is ranks in the power hierarchy
+Ethacratic
+"
+      ></option>
+      <option
+        value="05. Type of stratification system in which the basis of
+differentiation is occupation and qualification
+socio-professional stratification
+"
+      ></option>
+      <option
+        value="06. Type of stratification system in which the basis of
+differentiation is the amount of income and property
+class system
+"
+      ></option>
+      <option
+        value="07. The historical type of stratification system, the main
+structural element of which is a closed social group, belonging
+to which is determined solely by the birth of a person, is:
+estate stratification system.
+"
+      ></option>
+      <option
+        value='08. Author of the concept "Vertical circulation channels"
+Sorokin
+'
+      ></option>
+      <option
+        value="09. What does it mean to change the position of an individual,
+raising or lowering his social status
+Social mobility
+"
+      ></option>
+      <option
+        value="10. Social mobility means
+As a result of social mobility, individuals always increase or
+decrease their social status.
+"
+      ></option>
+      <option
+        value="11. The specific place that a given individual occupies in a
+given social system is called
+social status.
+"
+      ></option>
+      <option
+        value="12. Which of the following social institutions, according to P.
+Sorokin, is not a channel of vertical circulation
+Culture
+"
+      ></option>
+      <option
+        value="13. The totality of all statuses occupied by one person is called
+Status set or portrait
+"
+      ></option>
+      <option
+        value="14. A pattern of behaviour that conforms to prescriptions,
+requirements, expectations according to the status held
+Social role
+"
+      ></option>
+      <option
+        value="15. What are the two types of vertical social mobility?
+Ascending and descending
+"
+      ></option>
+      <option
+        value="16. A form of relationship between a man and a woman,
+sanctioned and regulated by society, which determines their
+rights and obligations in relation to each other.
+Marriage
+"
+      ></option>
+      <option
+        value="17. The transfer of social experience from parents to children is
+performed by such a function of the family as...
+Educational function (socialization function)
+"
+      ></option>
+      <option
+        value='18. Which of the representatives of world sociology is the
+author of the work " The Division of Labour in Society "
+Emile Durkheim
+'
+      ></option>
+      <option
+        value="19. The sharp increase in the role of knowledge and
+information is characterized by:
+post-industrial society
+"
+      ></option>
+      <option
+        value="20. A sociological study conducted to test the research
+methodology, tools used, etc., the so-called test research is
+called:
+Intelligence, intelligence service
+"
+      ></option>
+      <option
+        value="21. The degree of conformity of the indicators used in a
+sociological research with the concepts they are intended to
+reflect is called:
+validity
+"
+      ></option>
+      <option
+        value="22. The system of operations, prescriptions indicating the
+procedures for their application in a sociological research is
+called:
+methodology
+"
+      ></option>
+      <option
+        value="23. An example of a qualitative sociological (group) research
+is:
+focus group
+"
+      ></option>
+      <option
+        value="24. The idea of the historical process as a transition from
+mechanical solidarity to organic solidarity, based on a deepening
+division of labor and social differentiation, belongs to:
+E. Durkheim
+"
+      ></option>
+      <option
+        value="25. Supporters who recognize social conflicts as an integral
+feature of any society include:
+R. Darendorf
+"
+      ></option>
+      <option
+        value="26. A social process that involves a qualitative transformation
+of the entire system of social relations, up to the breaking of the
+established orders and the formation of new ones, is ...
+anomie
+"
+      ></option>
+      <option
+        value="27. Which definition of sociology is more exact?
+Sociology is the science of the emergence, development and
+functioning of social communities and social processes,
+about social relations as mechanisms of interrelation and
+interaction between these communities, between community
+and personality
+"
+      ></option>
+      <option
+        value="28. The most common method of collecting sociological
+information is:
+the survey
+"
+      ></option>
+      <option
+        value="29. The source of information, the unit of information in the
+collection of sociological data by the method of content analysis
+is:
+document
+"
+      ></option>
+      <option
+        value="30. The question of a sociological questionnaire, to which the
+respondent must independently formulate the content of his
+answer, is called
+open
+"
+      ></option>
+      <option
+        value="31. A form of indirect telephone polling
+telephone interview
+"
+      ></option>
+      <option
+        value="32. Researcher who argued that childhood experience plays a
+decisive role in family socialization
+Z. Freud
+"
+      ></option>
+      <option
+        value="33. The sociometric method is
+analysis of interpersonal relationships in small groups
+"
+      ></option>
+      <option
+        value="34. The expert survey is
+a type of survey in which the respondents are experts
+"
+      ></option>
+      <option
+        value='35. The concept of "gender" in sociology means
+a set of social roles and statuses related to the social and
+cultural understanding of human gender
+'
+      ></option>
+      <option
+        value="36. A document containing a series of questions aimed at
+obtaining information according to the goals and hypotheses of
+the research
+questionnaire
+"
+      ></option>
+      <option
+        value="37. The method of selecting respondents is called
+selection
+"
+      ></option>
+      <option
+        value="38. The sociological research programme includes
+methodological section: problem, purpose, tasks, object,
+subject of research, hypothesis; methodological section:
+sampling, definition of methods
+"
+      ></option>
+      <option
+        value='39. Method of sociological research used to obtain information
+on evaluations, respondents"
+ opinions
+qualitative
+'
+      ></option>
+      <option
+        value="40. Method of sociological research applied in the analysis of
+textual information
+content analysis
+"
+      ></option>
+      <option
+        value="41. A sampling is defined as
+as a part of the general set of elements that is covered by the
+experiment
+"
+      ></option>
+      <option
+        value="42. Group interview method where one issue is discussed
+focus group
+"
+      ></option>
+      <option
+        value="43. Rules of conduct, expectations and standards governing
+human interaction
+Norms, standards
+"
+      ></option>
+      <option
+        value="44. Which of the first sociologists created a classification of
+the sciences that represented a ladder, at the top of which was
+sociology
+O. Comte
+"
+      ></option>
+      <option
+        value="45. Social Institute for the Production and Accumulation of
+Knowledge
+education
+"
+      ></option>
+      <option
+        value="46. Pilot study to test the quality of sociological tools
+Reconnaissance, intelligence
+"
+      ></option>
+      <option
+        value="47. A system of beliefs and rituals through which a group of
+people explains and responds to what they find supernatural and
+sacred
+religion
+"
+      ></option>
+      <option
+        value="48. Source of primary information in the interview process
+respondent
+"
+      ></option>
+      <option
+        value="49. Social punishments and rewards that promote norms
+sanctions
+"
+      ></option>
+      <option
+        value="50. What actions, according to Weber, characterize civil
+society
+objective, value-rational, traditional, affective
+"
+      ></option>
+      <option
+        value="51. What strata, according to Western sociology, provide
+stability in society
+average
+"
+      ></option>
+      <option
+        value="52. Conflict of interest, different social responsibilities - this
+this is a conflict of interest
+"
+      ></option>
+      <option
+        value="53. Socialization begins at age
+at the age of infancy
+"
+      ></option>
+      <option
+        value="54. The general population includes
+the entire population
+"
+      ></option>
+      <option
+        value="55. The theory of deviant behavior, according to which certain
+features of the structure of the human body influence his
+propensity for deviant behavior
+constitutional theory
+"
+      ></option>
+      <option
+        value='56. A theory of deviant behavior, according to which a person’s
+failure to socialize may be the cause of his propensity for
+deviant behavior
+E. Durkheim "
+s Theory of Deviation
+'
+      ></option>
+      <option
+        value="57. Social statuses can be divided
+prescribed, achieved, mixed
+"
+      ></option>
+      <option
+        value='58. Respect for other people"
+s lifestyles, behaviour, feelings,
+customs, ideas, beliefs
+tolerance
+'
+      ></option>
+      <option
+        value="59. What is the name of the method of systematic, purposeful
+gathering of facts regardless of the individual’s will and fixing it
+at a certain time?
+Sociological observation
+"
+      ></option>
+      <option
+        value="60. The core of social structure according to Marxist theory is:
+classes
+"
+      ></option>
+      <option
+        value="61. Focused interview to obtain answers to questions from the
+research programme
+interview
+"
+      ></option>
+      <option
+        value="62. There are two types of observation:
+included and not included, structured and unstructured,
+field and laboratory, systematic and random
+"
+      ></option>
+      <option
+        value="63. Lack of individualization
+can also lead to co-dependence, problematic romantic,
+familial, and professional relationships, difficulty with
+independent decision-making, and a sense of aimlessness in
+life.
+"
+      ></option>
+      <option
+        value="64. Friends relate to
+to the primary social group
+"
+      ></option>
+      <option
+        value="65. Preliminary study method to verify and adjust all elements
+of the main study:
+intelligence research
+"
+      ></option>
+      <option
+        value="66. Type of question offering the respondent the choice of one
+of the lists of responses provided:
+closed question
+"
+      ></option>
+      <option
+        value="67. The method of collecting primary sociological information
+by directly recording events and processes taking place under
+certain conditions and entering them in the diary is:
+observation
+"
+      ></option>
+      <option
+        value="68. In what concept is a person considered as a three-level
+education (id, ego, super-ego)?
+psychoanalytic concept of personality
+"
+      ></option>
+      <option
+        value="69. The founder of understanding sociology is
+Max Weber
+"
+      ></option>
+      <option
+        value="70. Which philosophical direction is represented by M.Weber
+Antipositivism, understanding sociology
+"
+      ></option>
+      <option
+        value="71. Under which theory of socialization J. Piaget worked
+Theory of cognitive development
+"
+      ></option>
+      <option
+        value="72. An explorer whose follower was Auguste Comte, whose
+views on society and its development served as the basis for the
+teachings of A.Comte
+A.Saint-Simon
+"
+      ></option>
+      <option
+        value="73. Number of sample units
+Sample size
+"
+      ></option>
+      <option
+        value="74. Research that allows to get information about the
+motivations of behavior, attitudes of people, that is to get an
+answer to the question: «Why?» are called
+analytical research
+"
+      ></option>
+      <option
+        value="75. Research into objective, quantifiable characteristics of
+human behaviour is called
+Quantitative research
+"
+      ></option>
+      <option
+        value="76. A survey using a manual questionnaire is called:
+survey
+"
+      ></option>
+      <option
+        value='77. A theory of deviant behavior, according to which a person’s
+failure to socialize may be the cause of his propensity for
+deviant behavior
+E. Durkheim "
+s Theory of Deviation
+'
+      ></option>
+      <option
+        value="78. Macrosociology studies:
+the social structure of society, social institutions, large social
+groups, communities, strata, as well as the processes
+occurring in them.
+"
+      ></option>
+      <option
+        value="79. Sociology as a science emerged
+in the middle of the XIX century
+"
+      ></option>
+      <option
+        value="80. A person who internally belongs in their cultural life and
+traditions to two different peoples or social groups
+marginal personality
+"
+      ></option>
+      <option
+        value="81. How did Comte originally call sociology?
+social physics
+"
+      ></option>
+      <option
+        value='82. Charles Cooley is the founder of which theory
+The "Mirror Self"
+'
+      ></option>
+      <option
+        value='83. George Herbert Mead is the founder of which theory
+"Generalized other"
+'
+      ></option>
+      <option
+        value="84. Ethnos is
+people of the same race or nationality who share a
+distinctive culture
+Type of family according to the criterion of leadership, in which
+a man dominates
+patriarchy
+"
+      ></option>
+      <option
+        value="85. Family type characterized by living together for several
+generations
+Extended Family
+"
+      ></option>
+      <option
+        value="86. The authors of the theory of social exchange, which considers
+the exchange of various social values and benefits as the
+fundamental basis of social relations, are:
+George Homans 1958
+"
+      ></option>
+      <option
+        value="86. Type of family according to the criterion of leadership, in which
+a woman dominates
+matriarchy
+"
+      ></option>
+      <option
+        value="87. A form of marriage that is the union of one man and one woman
+monogamy
+"
+      ></option>
+      <option
+        value="88. A form of religious organization that is an autonomous, highly
+centralized institution that is hierarchical and widespread
+Church
+"
+      ></option>
+      <option
+        value="89. A form of religious organization, which is a closed group that
+has arisen within a religious movement recognized by society as
+an opposition movement
+Sect (секта кароч)
+"
+      ></option>
+      <option
+        value="90. An early form of religion, the veneration of various objects of
+reality, which were attributed supernatural properties
+Fetishism
+"
+      ></option>
+      <option
+        value="91. An early form of religion, the belief in the existence of a
+supernatural connection, a relationship between a group of
+people and some kind of animal or plant
+Totemism
+"
+      ></option>
+      <option
+        value="92. The process by which beliefs in the supernatural and related
+rituals are questioned and the institution of religion loses its
+social influence
+Secularization
+"
+      ></option>
+      <option
+        value="93. A form of religion that is a system of many gods
+Polytheism"
+      ></option>
+    </datalist>
+  </body>
+</html>
